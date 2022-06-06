@@ -38,8 +38,6 @@ const FamousPlaces = () => {
     handleLocation();
   }, []);
 
-  console.log(allLocation);
-
   return (
     <S.Container>
       <S.Content>

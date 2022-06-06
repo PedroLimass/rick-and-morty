@@ -55,7 +55,6 @@ const Character = () => {
       });
 
       const solve = await Promise.all(resultData);
-      console.log("solve", solve);
 
       setDataSearch(solve);
     }
@@ -165,7 +164,10 @@ const Character = () => {
                 </S.GridCard>
                 <S.BtnContent>
                   {loadMore !== null && (
-                    <BtnLoadMore btnColor="white" actionFunc={handleDataSearch} />
+                    <BtnLoadMore
+                      btnColor="white"
+                      actionFunc={handleDataSearch}
+                    />
                   )}
                 </S.BtnContent>
               </S.FilterContent>

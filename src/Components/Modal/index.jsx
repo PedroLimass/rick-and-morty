@@ -8,7 +8,6 @@ import api from "../../Services/index";
 const Modal = ({ setOpenModal, dataOriginal }) => {
   const [firstRelated, setFirstRelated] = useState();
   const [seconfRelated, setSeconfRelated] = useState();
-  console.log("data", dataOriginal);
 
   const handleReleate = async (data) => {
     const res = await api.get(data.episode[0]);
@@ -23,11 +22,6 @@ const Modal = ({ setOpenModal, dataOriginal }) => {
   useEffect(() => {
     handleReleate(dataOriginal);
   }, [dataOriginal]);
-
-  useEffect(() => {
-    console.log("seconfRelated", seconfRelated);
-    console.log("firstRelated", firstRelated);
-  }, [firstRelated, seconfRelated]);
 
   return (
     <S.Container>

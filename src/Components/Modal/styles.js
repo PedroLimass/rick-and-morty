@@ -1,6 +1,6 @@
-import { style } from "@mui/system";
 import styled from "styled-components";
 import { themeColors } from "../../Styles/colorTheme";
+import { breakPoints } from "../../Utils/screenSizes";
 
 export const Container = styled.div`
   width: 100%;
@@ -13,6 +13,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 80;
+  overflow-y: auto;
 `;
 
 export const ModalWrapper = styled.div`
@@ -25,6 +26,19 @@ export const ModalWrapper = styled.div`
   position: relative;
   z-index: 80;
   border-radius: 20px;
+
+  @media only screen and (max-width: ${breakPoints.ipadAir}) {
+    margin: 0 10%;
+  }
+
+  @media only screen and (max-width: ${breakPoints.mobile}) {
+    width: 380px;
+    height: 850px;
+  }
+
+  @media only screen and (max-width: ${breakPoints.smallMobile}) {
+    margin-top: 50%;
+  }
 `;
 
 export const SideImage = styled.div`
@@ -32,6 +46,10 @@ export const SideImage = styled.div`
   border-radius: 20px;
   padding: 60px 0px 0px 60px;
   position: relative;
+
+  @media only screen and (max-width: ${breakPoints.mobile}) {
+    flex-direction: column;
+  }
 `;
 
 export const ModalContent = styled.div`
@@ -39,6 +57,9 @@ export const ModalContent = styled.div`
   display: flex;
   justify-content: flex-end;
   border-radius: 20px;
+  @media only screen and (max-width: ${breakPoints.ipadAir}) {
+    justify-content: flex-start;
+  }
 `;
 
 export const CloseModalButton = styled.img`
@@ -75,6 +96,11 @@ export const DataPersona = styled.div`
 
   span {
     color: ${themeColors.white};
+  }
+
+  @media only screen and (max-width: ${breakPoints.ipadAir}) {
+    margin-top: 10px;
+    margin-left: 10px;
   }
 `;
 
@@ -122,12 +148,20 @@ export const PesonaTitle = styled.div`
   text-align: left;
   margin-top: 43px;
   margin-bottom: 14px;
+
+  @media only screen and (max-width: ${breakPoints.ipadAir}) {
+    margin-top: 23px;
+  }
 `;
 
 export const RelatedPersona = styled.div`
   width: 276px;
   height: 100%;
   margin-right: 57px;
+
+  @media only screen and (max-width: ${breakPoints.ipadAir}) {
+    margin-left: 57px;
+  }
 `;
 
 export const ImgRelated = styled.img`
