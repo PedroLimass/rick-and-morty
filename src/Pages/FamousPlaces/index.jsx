@@ -47,6 +47,7 @@ const FamousPlaces = () => {
           {allLocation.slice(0, sliceData).map((data, index) => {
             return (
               <CardLocation
+                key={index}
                 index={index}
                 Title={data.name}
                 SubTitle={data.dimension}

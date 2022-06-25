@@ -7,6 +7,7 @@ const BtnLoadMore = ({ actionFunc, btnColor }) => {
       <button
         type="button"
         className="btnLoadMore"
+        data-testid="btnLoadMore"
         onClick={() => {
           return actionFunc();
         }}

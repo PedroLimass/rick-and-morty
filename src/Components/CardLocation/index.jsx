@@ -5,7 +5,7 @@ const CardLocation = ({ Title, SubTitle, imgLink }) => {
 
   const clearWord = SubTitle.replace(/Dimension:/g, ""); 
   return (
-    <S.Container>
+    <S.Container data-testid="card-location">
       <S.DataSide>
         <S.Title>{Title}</S.Title>
         <S.SubTitle>Dimensão: {clearWord}</S.SubTitle>
