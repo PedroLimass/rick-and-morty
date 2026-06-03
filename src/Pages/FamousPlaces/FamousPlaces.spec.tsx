@@ -1,25 +1,34 @@
-/* eslint-disable testing-library/await-async-utils */
-import { render, screen, waitFor } from "@testing-library/react";
-import axios from "axios";
-import "@testing-library/jest-dom/extend-expect";
-import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
+import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 
 import { BrowserRouter } from "react-router-dom";
 import FamousPlaces from "./";
+import {
+  getLocationsPage,
+  getLocationFilterOptions,
+} from "../../Services/locations";
+import { getCharactersByIds } from "../../Services/characters";
+import type { Character } from "../../types/rickAndMorty";
 import { fakePlaces } from "../../mock/fakePlaces";
 import { fakeEpsCharacter } from "../../mock/fakeEpisode";
 
-
+vi.mock("../../Services/locations");
+vi.mock("../../Services/characters");
 
 beforeEach(() => {
-  jest.mock("axios");
-  axios.get = jest.fn().mockResolvedValue({ data: fakePlaces });
-  axios.get = jest.fn().mockResolvedValue({ data: fakeEpsCharacter });
+  vi.mocked(getLocationsPage).mockResolvedValue(fakePlaces);
+  vi.mocked(getCharactersByIds).mockResolvedValue(
+    fakeEpsCharacter as unknown as Character[]
+  );
+  vi.mocked(getLocationFilterOptions).mockResolvedValue({
+    types: ["Planet", "Space station"],
+    dimensions: ["Dimension C-137", "unknown"],
+  });
 });
 
 describe("<FamousPlaces/>", () => {
   afterEach(() => {
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 
   it("Should Render components", async () => {
@@ -33,14 +42,11 @@ describe("<FamousPlaces/>", () => {
       screen.getByRole("heading", { name: /lugares famosos de rick & morty/i })
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /mostrar mais seta para baixo/i })
+      await screen.findByRole("button", { name: /mostrar mais seta para baixo/i })
     ).toBeInTheDocument();
   });
 
   it("Should Render list with mock values", async () => {
-    axios.get.mockResolvedValue({ data: fakePlaces });
-    axios.get.mockResolvedValue({ data: fakeEpsCharacter });
-
     render(
       <BrowserRouter>
         <FamousPlaces />

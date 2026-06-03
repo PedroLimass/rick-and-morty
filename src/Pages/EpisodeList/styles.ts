@@ -15,6 +15,7 @@ export const Content = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const Title = styled.h1`
@@ -22,18 +23,15 @@ export const Title = styled.h1`
   font-weight: 700;
   line-height: 38px;
   letter-spacing: 0em;
-  text-align: left;
+  text-align: center;
   color: ${themeColors.primaryColors};
   margin-bottom: 70px;
-
-  @media only screen and (max-width: ${breakPoints.ipadAir}) {
-    margin-left: 10%;
-  }
 `;
 
 export const ColumnEps = styled.div`
+  width: 100%;
   max-width: 682px;
-  height: 110px;
+  height: auto;
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -54,8 +52,34 @@ export const ColumnEps = styled.div`
   }
 `;
 
-export const WrapperSelect = styled.div`
+export const Filters = styled.div`
+  width: 100%;
+  max-width: 682px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
   margin-bottom: 49px;
+
+  @media only screen and (max-width: ${breakPoints.ipadAir}) {
+    padding: 0 10%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+`;
+
+export const StatusMessage = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 10%;
+  color: ${themeColors.primaryColors};
+  font-size: 18px;
+  text-align: center;
+`;
+
+export const WrapperSelect = styled.div`
   .selectTemp {
     width: 210px;
     height: 60px;
@@ -83,7 +107,7 @@ export const WrapperSelect = styled.div`
     border: none;
 
     @media only screen and (max-width: ${breakPoints.ipadAir}) {
-      margin-left: 10%;
+      width: 100%;
     }
   }
 `;

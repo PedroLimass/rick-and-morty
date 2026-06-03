@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div<{ btnColor?: string }>`
   .btnLoadMore {
     font-family: Open Sans;
     font-size: 20px;

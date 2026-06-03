@@ -34,18 +34,46 @@ export const Title = styled.h1`
   }
 `;
 
+export const Filters = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 50px;
+
+  @media only screen and (max-width: ${breakPoints.ipadAir}) {
+    padding: 0 10%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+`;
+
+export const StatusMessage = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10% 40px;
+  color: ${themeColors.primaryColors};
+  font-size: 18px;
+  text-align: center;
+`;
+
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-column-gap: 35px;
-  justify-content: space-between;
   grid-row-gap: 38px;
   margin-bottom: 85px;
   width: 100%;
 
   @media only screen and (max-width: ${breakPoints.ipadAir}) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     padding: 0 10%;
+  }
+
+  @media only screen and (max-width: ${breakPoints.mobile}) {
+    padding: 0;
   }
 `;

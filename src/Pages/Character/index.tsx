@@ -2,11 +2,11 @@ import * as S from "./styles";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
-import { ReactComponent as IconSearch } from "../../Assets/Search.svg";
+import IconSearch from "../../Assets/Search.svg?react";
 import api from "../../Services/index";
 import FilterRickAndMorty from "../../Assets/Rick-and-Morty-Shop.png";
 
@@ -118,9 +118,9 @@ const Character = () => {
               label="Status"
               onChange={handleStatus}
             >
-              <MenuItem value={"alive"}>Alive</MenuItem>
-              <MenuItem value={"dead"}>Dead</MenuItem>
-              <MenuItem value={"unknown"}>Unknown</MenuItem>
+              <MenuItem value={"alive"}>Vivo</MenuItem>
+              <MenuItem value={"dead"}>Morto</MenuItem>
+              <MenuItem value={"unknown"}>Desconhecido</MenuItem>
             </Select>
           </FormControl>
 
@@ -133,10 +133,10 @@ const Character = () => {
               label="Gênero"
               onChange={handleGender}
             >
-              <MenuItem value={"female"}>Female</MenuItem>
-              <MenuItem value={"male"}>Male</MenuItem>
-              <MenuItem value={"genderless"}>Genderless</MenuItem>
-              <MenuItem value={"unknown"}>Unknown</MenuItem>
+              <MenuItem value={"female"}>Feminino</MenuItem>
+              <MenuItem value={"male"}>Masculino</MenuItem>
+              <MenuItem value={"genderless"}>Sem gênero</MenuItem>
+              <MenuItem value={"unknown"}>Desconhecido</MenuItem>
             </Select>
           </FormControl>
         </S.Filter>
